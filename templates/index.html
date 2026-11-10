@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+<section style="padding:24px 0 8px">
+  <h1 style="font-size:2.25rem">{{ site_name }}</h1>
+  <p class="muted" style="font-size:1.15rem">A short line about what you do and who it is for. Replace this text with your own.</p>
+</section>
+
+<section>
+  <h2>What we do</h2>
+  <div class="card"><strong>Service one</strong><p class="muted" style="margin:6px 0 0">One sentence that says what the customer gets.</p></div>
+  <div class="card"><strong>Service two</strong><p class="muted" style="margin:6px 0 0">One sentence that says what the customer gets.</p></div>
+  <div class="card"><strong>Service three</strong><p class="muted" style="margin:6px 0 0">One sentence that says what the customer gets.</p></div>
+</section>
+
+<section id="contact">
+  <h2>Get in touch</h2>
+  {% if sent %}
+  <div class="notice ok"><strong>Thank you.</strong> Your message was sent. We will reply by email.</div>
+  {% else %}
+  {% if error %}<div class="notice bad">{{ error }}</div>{% endif %}
+  <form method="post" action="/contact" class="card">
+    <label for="name" style="margin-top:0">Your name</label>
+    <input type="text" id="name" name="name" value="{{ form.name or '' }}" maxlength="200" autocomplete="name" required>
+    <label for="email">Your email</label>
+    <input type="email" id="email" name="email" value="{{ form.email or '' }}" maxlength="254" autocomplete="email" required>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" maxlength="5000" required>{{ form.message or '' }}</textarea>
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <button type="submit">Send message</button>
+  </form>
+  {% endif %}
+</section>
+{% endblock %}

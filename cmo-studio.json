@@ -1,0 +1,13 @@
+{
+  "name": "Landing page with contact form",
+  "description": "A one-page site with a contact form. Messages are saved in Postgres and emailed to you.",
+  "runtime": "python",
+  "startup": "gunicorn --bind 0.0.0.0:8000 app:app",
+  "database": true,
+  "mail": true,
+  "env": [
+    {"name": "OWNER_EMAIL", "description": "Where new messages are sent", "secret": false},
+    {"name": "MAIL_FROM", "description": "Sender address for the notification email. Must be on your verified domain, e.g. site@yourdomain.com", "secret": false},
+    {"name": "SITE_NAME", "description": "Name shown on the page (optional)", "secret": false}
+  ]
+}
