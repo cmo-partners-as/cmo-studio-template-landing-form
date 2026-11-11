@@ -2,6 +2,8 @@
 
 # Landing page with contact form
 
+**For AI agents:** read [AGENTS.md](AGENTS.md) and the CMO Studio guide at https://studio.cmopartners.co/llms.txt.
+
 A one-page site with a contact form. Each message is saved in Postgres and emailed to you. A hidden field catches simple spam bots.
 
 Built with Flask. Runs on [CMO Studio](https://studio.cmopartners.co/?ref=template-landing-form).
